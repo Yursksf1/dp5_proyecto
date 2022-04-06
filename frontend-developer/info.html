@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <style>
+        .container_2 {
+            display: flex;
+            background-color: papayawhip;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        .item_2 {
+            width: 30px;
+            height: 30px;
+            background-color: purple;
+        }
+        .container_2 .item_2:nth-child(2n+1) {
+            background-color: cyan;
+        }
+
+        .container_3 {
+            display: flex;
+            position: fixed;
+
+            background-color: papayawhip;
+            justify-content: center;
+            /* align-items: center; */
+            flex-direction: column;
+            height: 200px;
+            width: 100px;
+        }
+        .item_3 {
+            width: 30px;
+            height: 30px;
+            background-color: purple;
+        }
+        .container_3 .item_3:nth-child(2n+1) {
+            background-color: cyan;
+        }
+         
+        .container_2 .content {
+            background-color: gainsboro;
+            width: 80%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<div class="container_3">
+    <div class="item_3">
+        <!-- Home -->
+        <a href="./home.html">
+            <i class="fa fa-home" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="item_3">
+        <!-- info -->
+        <a href="./info.html">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="item_3">
+        <!-- imagenes -->
+        <i class="fa fa-picture-o" aria-hidden="true"></i>
+
+    </div>
+    <div class="item_3">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+
+    </div>
+    <div class="item_3">
+        <!-- contactame -->
+        <a href="https://api.whatsapp.com/send?phone=+573194877423&amp;text=Hola!%20esto%20es%20una%20verificaci%C3%B3n%20de%20l%C3%ADneas.">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+        </a>        
+    </div>
+</div>
+
+<div class="container_2">
+    <div class="content">
+        <h1>
+            Este es el info
+        </h1>
+
+    </div>
+</div>
+
+</body>
+</html>

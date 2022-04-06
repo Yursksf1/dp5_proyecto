@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            background-color: papayawhip;
+            grid-template-columns: 2fr 3fr ;
+            grid-template-rows: 2fr 1fr ;
+            width: 100%;
+            height: 100%;    
+            margin: 24px 0 0    }
+        .item {
+            border: black solid;
+            background-color: purple;
+            padding: 20px;
+        }
+        .container .item:nth-child(2n+1) {
+            background-color: cyan;
+        }
+        img {
+            width: 250px;
+            height: 250px; 
+            border-radius: 10px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item">
+
+     <h1> Name : Yurley</h1>
+     <img src="https://www.python.org.co/usuarios/yurs_ksf1/yurley.jpg" alt="">
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil quod, temporibus minus similique rerum voluptatem est officiis quia distinctio repellat iure pariatur consectetur facilis quibusdam fugiat tempora? Quidem, neque velit?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente maxime reprehenderit quos totam, rerum fugit laboriosam quis. Illum minima architecto tempore dolore. Autem perferendis porro laudantium vero id, culpa quam.
+        </p>
+    </div>
+    <div class="item">
+        <h2> Experiencia</h2>
+        <p> docencia universitatia UIS</p>
+
+
+        <h2> Experiencia</h2>
+        <p> docencia universitatia Confenakco</p>
+
+        <h2> Experiencia</h2>
+        <p> Desarrollo Web LF</p>
+    </div>
+
+    <div class="item">
+        <h2> Idiomas </h2>
+        <ul>
+            <li> Esp</li>
+            <li> Ingles</li>
+        </ul>
+    </div>
+
+    <div class="item">
+        <h2> Estuios Academicos </h2>
+        <p>
+            Ing Sistemas Uis
+        </p>
+        <table>
+            <tr>
+                <th> uno </th>
+                <th> dos </th>
+            </tr>
+            <tr>
+                <td> 11 </td>
+                <td> 22 </td>
+            </tr>
+        </table>
+        
+    </div>
+</div>
+<br>
+
+</body>
+</html>
