@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(189, 189, 189);
+}
+
+p {
+    color:chocolate; 
+    font-size: large;
+    background-color: darkgray;
+ }
+
+.titulo {
+    color: salmon;
+    background-color: black;
+}
+
+#titulo_principal {
+    color: blueviolet;
+    font-size: 50px;
+    background-color: white;
+}
+#titulo_secundario {
+    color: aqua;
+    font-size: 3em;
+}
+
+#check_div {
+    display: flex;
+    max-width: 120;
+}
