@@ -6,7 +6,6 @@ class People:
     def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.num_juegos = 0
 
     def update_information(self, *arg, **kw):
         if "name" in kw:
@@ -15,47 +14,71 @@ class People:
         if "age" in kw:
             self.age = kw.get("age")
 
-    def get_number_character_of_name(self):
-        return len(self.name)
 
-    def jugo(self):
-        print("agregamos un juego mas")
-        self.num_juegos = self.num_juegos + 1
+class Game:
+    """
+    this class about games
+    """
 
-
-persona_1 = People(name="Yurley", age=30)
-print(persona_1.name, persona_1.get_number_character_of_name())
-persona_1.jugo()
-persona_1.jugo()
-persona_1.jugo()
-
-persona_2 = People(name="Diego", age=25)
-print(persona_2.name, persona_2.get_number_character_of_name())
-persona_2.jugo()
-persona_2.jugo()
-
-persona_3 = People(name="Yerly", age=15)
-print(persona_3.name, persona_3.get_number_character_of_name())
-persona_3.jugo()
-persona_3.jugo()
-persona_3.jugo()
-persona_3.jugo()
-persona_3.jugo()
+    def __init__(self, date, location):
+        self.date = date
+        self.location = location
 
 
+class Points:
+    """
+    this class about point in a specific game and specific person
+    """
+
+    def __init__(self, game, person):
+        self.game = game
+        self.person = person
+        self.point = 0
+
+    def anotacion(self, new_point):
+        self.point = self.point + new_point
+
+people_1 = People(name="Yurley", age=15)
+people_2 = People(name="Diego", age=17)
+people_3 = People(name="Yeimi", age=16)
+people_4 = People(name="Vale", age=16)
+people_5 = People(name="Jose", age=14)
+
+game = Game(date="el 1 de abril del 2022", location="cancha numero 1")
+
+point_d = Points(game=game, person=people_2)
+point_d.anotacion(new_point=3)
+point_d.anotacion(new_point=2)
+point_d.anotacion(new_point=2)
+
+point_y = Points(game=game, person=people_3)
+point_y.anotacion(new_point=2)
+point_y.anotacion(new_point=3)
+point_y.anotacion(new_point=3)
 
 
+game_2 = Game(date="el 4 de abril del 2022", location="cancha numero 3")
+point_y_1 = Points(game=game_2, person=people_1)
+point_y_1.anotacion(new_point=2)
+point_y_1.anotacion(new_point=2)
 
+point_j = Points(game=game_2, person=people_5)
+point_j.anotacion(new_point=3)
+point_j.anotacion(new_point=3)
 
-print(persona_1.name, persona_1.num_juegos)
-print(persona_2.name, persona_2.num_juegos)
-print(persona_3.name, persona_3.num_juegos)
+points = [point_d, point_y, point_y_1, point_j]
+
+for point in points:
+    # print("INFORMACION DE DIEGO")
+    print("la persona: {},  anoto {} puntos en el partido que se llevo acabo el dia {}, en la cancha {}".format(
+        point.person.name, point.point, point.game.date, point.game.location,
+    ))
 
 
 """
-Ejercicio:
-en base a este objeto persona -- (jugador)
-agregar un atributo de numero de anotaciones
-y agregar una funcion para sacar el promedio de anotacion por partido.
+Ejercicio 2: 
+Agregar un nuevo partido de baloncesto. 
+agregar un nuevo integrante del  equipo.
+agregar minimo 4 anotacion por cada persona. 
 
 """
