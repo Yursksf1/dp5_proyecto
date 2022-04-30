@@ -38,6 +38,16 @@ class Points:
     def anotacion(self, new_point):
         self.point = self.point + new_point
 
+    @staticmethod
+    def get_point_by_game(points):
+        puntos_por_partidos = {}
+        for point in points:
+            if point.game.date not in puntos_por_partidos:
+                puntos_por_partidos[point.game.date] = 0
+            puntos_por_partidos[point.game.date] = puntos_por_partidos[point.game.date] + point.point
+
+        return puntos_por_partidos
+
 people_1 = People(name="Yurley", age=15)
 people_2 = People(name="Diego", age=17)
 people_3 = People(name="Yeimi", age=16)
@@ -75,10 +85,12 @@ for point in points:
     ))
 
 
-"""
-Ejercicio 2: 
-Agregar un nuevo partido de baloncesto. 
-agregar un nuevo integrante del  equipo.
-agregar minimo 4 anotacion por cada persona. 
+print("")
+puntos_por_partidos = Points.get_point_by_game(points)
+for partido, puntos in puntos_por_partidos.iteritems():
+    print("en el partido de {} hubieron {} anotaciones".format(partido, puntos))
 
+"""
+Reto: 
+como hallar los puntos por personas de todos los partidos que han jugado 
 """
