@@ -14,7 +14,8 @@ class Game:
     this class about games
     """
 
-    def __init__(self, date, location):
+    def __init__(self, id, date, location):
+        self.id = id
         self.date = date
         self.location = location
 
@@ -70,14 +71,25 @@ list_player = [
     people_10
     ]
 
-game_1 = Game(date="10/01/22", location="Cancha 1")
-game_2 = Game(date="15/01/22", location="Cancha 2")
-game_3 = Game(date="20/01/22", location="Cancha 1")
-game_4 = Game(date="25/01/22", location="Cancha 2")
-game_5 = Game(date="30/01/22", location="Cancha 2")
-game_6 = Game(date="5/02/22", location="Cancha 2")
-game_7 = Game(date="10/02/22", location="Cancha 3")
-game_8 = Game(date="15/02/22", location="Cancha 1")
+game_1 = Game(id="G1", date="10/01/22", location="Cancha 1")
+game_2 = Game(id="G2", date="15/01/22", location="Cancha 2")
+game_3 = Game(id="G3", date="20/01/22", location="Cancha 1")
+game_4 = Game(id="G4", date="25/01/22", location="Cancha 2")
+game_5 = Game(id="G5", date="30/01/22", location="Cancha 2")
+game_6 = Game(id="G6", date="5/02/22", location="Cancha 2")
+game_7 = Game(id="G7", date="10/02/22", location="Cancha 3")
+game_8 = Game(id="G8", date="15/02/22", location="Cancha 1")
+
+list_games = [
+    game_1,
+    game_2,
+    game_3,
+    game_4,
+    game_5,
+    game_6,
+    game_7,
+    game_8,
+    ]
 
 lista_game_players = []
 lista_game_players.append(GamePlayer(people_1, game_1, 0, 2))
@@ -134,6 +146,7 @@ menu = """
     3. Desea ingresar los datos de un jugador en un juego.
     4. Imprimir resultados.
     5. Imprimir todos los jugadores.
+    6. Imprimir todos los juegos.
     0. SALIR.
 """
 
@@ -152,6 +165,10 @@ while bandera:
         pass
     elif respuesta == '2':
         print("=== ingresando nuevo juego === ")
+        date = input("Ingresa la fecha del juego: ")
+        location = input("Ingresa la ubicacion donde se juego: ")
+        id = "G{}".format(len(list_games)+1)
+        list_games.append(Game(id=id, date=date, location=location))
 
         pass
     elif respuesta == '3':
@@ -195,3 +212,8 @@ while bandera:
         print("=== imprimiendo todos los jugadores === ")
         for jugador in list_player:
             print(jugador.id, jugador.name, jugador.age)
+
+    elif respuesta == '6':
+        print("=== imprimiendo todos los juegos === ")
+        for juego in list_games:
+            print(juego.id, juego.location, juego.date)
