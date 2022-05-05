@@ -8,6 +8,15 @@ class People:
         self.name = name
         self.age = age
 
+    @staticmethod
+    def get_user_by_id(id, list_player):
+        person = None
+
+        for player in list_player:
+            if id == player.id:
+                person = player
+
+        return person
 
 class Game:
     """
@@ -19,6 +28,15 @@ class Game:
         self.date = date
         self.location = location
 
+    @staticmethod
+    def get_game_by_id(id, list_game):
+        game = None
+
+        for juego in list_game:
+            if id == juego.id:
+                game = juego
+
+        return game
 
 class GamePlayer:
     """
@@ -155,6 +173,7 @@ while bandera:
     respuesta = input(menu)
     if respuesta == '0':
         bandera = False
+
     elif respuesta == '1':
         print("=== ingresando nuevo jugador === ")
         nombre = input("Ingresa el nombre del nuevo jugador: ")
@@ -162,7 +181,6 @@ while bandera:
         id = "J{}".format(len(list_player)+1)
         list_player.append(People(id=id, name=nombre, age=age))
 
-        pass
     elif respuesta == '2':
         print("=== ingresando nuevo juego === ")
         date = input("Ingresa la fecha del juego: ")
@@ -170,11 +188,22 @@ while bandera:
         id = "G{}".format(len(list_games)+1)
         list_games.append(Game(id=id, date=date, location=location))
 
-        pass
+
     elif respuesta == '3':
         print("=== ingresando nuevos datos de jugador en juego === ")
+        jugador_id = input("Ingresa el id del jugador: ")
+        people = People.get_user_by_id(jugador_id, list_player)
+        if people:
+            print(people.name, people.age)
 
-        pass
+        game_id = input("Ingresa el id del juego: ")
+        game = Game.get_game_by_id(game_id, list_games)
+        if game:
+            print(game.location, game.date)
+
+        puntos = int(input("Ingresa los puntos que anoto "))
+        faltas = int(input("Ingresa las faltas que cometio "))
+        lista_game_players.append(GamePlayer(people, game, puntos, faltas))
 
     elif respuesta == '4':
         print("=== Resultados === ")
