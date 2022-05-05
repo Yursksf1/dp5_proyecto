@@ -1,10 +1,30 @@
 -- crear la tabla
 
+create table game
+(
+    id        int,
+    localtion str,
+    date      str
+);
+
 create table person
 (
     name str,
     age  int,
     id   int
+);
+
+create table game_player
+(
+    id        int,
+    puntos    int,
+    faltas    int,
+    id_person int
+        constraint game_player_person_id_fk
+            references person (id),
+    id_game   int
+        constraint game_player_game_id_fk
+            references game (id)
 );
 
 
