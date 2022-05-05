@@ -125,31 +125,73 @@ lista_game_players.append(GamePlayer(people_10, game_8, 6, 4))
 jugadores = {
 }
 
-for lista_game_player in lista_game_players:
-    name = lista_game_player.person.name
-    if name not in jugadores:
-        jugadores[name] = {
-            "id": lista_game_player.person.id,
-            'person': lista_game_player.person,
-            "partidos_jugados": 0,
-            "faltas_totales": 0,
-            "puntos_totales": 0,
-            "promedio": 0,
-        }
-    jugadores[name]["partidos_jugados"] = jugadores[name]["partidos_jugados"] + 1
-    jugadores[name]["faltas_totales"] = jugadores[name]["faltas_totales"] + lista_game_player.fail
-    jugadores[name]["puntos_totales"] = jugadores[name]["puntos_totales"] + lista_game_player.point
-    jugadores[name]["promedio"] = jugadores[name]["puntos_totales"] / jugadores[name]["partidos_jugados"]
 
-lista_clasificacion = []
+# Here is my menu
+menu = """
+    Selecciona la opcion que desea realizar  
+    1. Desea ingresar un nuevo jugador.
+    2. Desea ingresar los datos de un nuevo juego.
+    3. Desea ingresar los datos de un jugador en un juego.
+    4. Imprimir resultados.
+    5. Imprimir todos los jugadores.
+    0. SALIR.
+"""
+
+bandera = True
+while bandera:
+    respuesta = input(menu)
+    if respuesta == '0':
+        bandera = False
+    elif respuesta == '1':
+        print("=== ingresando nuevo jugador === ")
+        nombre = input("Ingresa el nombre del nuevo jugador: ")
+        age = input("Ingresa la eded de {}: ".format(nombre))
+        id = "J{}".format(len(list_player)+1)
+        list_player.append(People(id=id, name=nombre, age=age))
+
+        pass
+    elif respuesta == '2':
+        print("=== ingresando nuevo juego === ")
+
+        pass
+    elif respuesta == '3':
+        print("=== ingresando nuevos datos de jugador en juego === ")
+
+        pass
+
+    elif respuesta == '4':
+        print("=== Resultados === ")
+
+        for lista_game_player in lista_game_players:
+            name = lista_game_player.person.name
+            if name not in jugadores:
+                jugadores[name] = {
+                    "id": lista_game_player.person.id,
+                    'person': lista_game_player.person,
+                    "partidos_jugados": 0,
+                    "faltas_totales": 0,
+                    "puntos_totales": 0,
+                    "promedio": 0,
+                }
+            jugadores[name]["partidos_jugados"] = jugadores[name]["partidos_jugados"] + 1
+            jugadores[name]["faltas_totales"] = jugadores[name]["faltas_totales"] + lista_game_player.fail
+            jugadores[name]["puntos_totales"] = jugadores[name]["puntos_totales"] + lista_game_player.point
+            jugadores[name]["promedio"] = jugadores[name]["puntos_totales"] / jugadores[name]["partidos_jugados"]
+
+        lista_clasificacion = []
 
 
-for jugador, data in jugadores.items():
-    if data["partidos_jugados"] >= 3 and data["faltas_totales"] < 10 and data["person"].age >= 15:
-        lista_clasificacion.append({"jugador": jugador, "promedio": data["promedio"]})
+        for jugador, data in jugadores.items():
+            if data["partidos_jugados"] >= 3 and data["faltas_totales"] < 10 and data["person"].age >= 15:
+                lista_clasificacion.append({"jugador": jugador, "promedio": data["promedio"]})
 
 
-lista_clasificacion = sorted(lista_clasificacion, key=lambda d: -d['promedio'])
+        lista_clasificacion = sorted(lista_clasificacion, key=lambda d: -d['promedio'])
 
-for jugador in lista_clasificacion[:5]:
-    print(jugador)
+        for jugador in lista_clasificacion[:5]:
+            print(jugador)
+
+    elif respuesta == '5':
+        print("=== imprimiendo todos los jugadores === ")
+        for jugador in list_player:
+            print(jugador.id, jugador.name, jugador.age)
