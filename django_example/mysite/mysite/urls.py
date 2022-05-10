@@ -19,5 +19,6 @@ from proyecto import views
 
 urlpatterns = [
     path("", views.index),
+    path("asdf", views.index),
     path('admin/', admin.site.urls),
 ]

@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .models import Person
+from .models import Player
 
 
 def index(request):
-    personas = Person.objects.all()
+    personas = Player.objects.all()
 
     messaje = "Lista de jugadores"
     for persona in personas:

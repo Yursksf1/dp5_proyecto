@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     # my cutom application
     'proyecto.apps.ProyectoConfig',
-    'equipo.apps.EquipoConfig',
 ]
 
 MIDDLEWARE = [
