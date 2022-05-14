@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title_block %} Default tile {% endblock %}
+    </title>
+        {% block load_style %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        {% endblock %}
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                    <a href="{% url 'app:pag1' %}"> pag1 </a> <br>
+            </li>
+            <li>
+                    <a href="{% url 'app:pag2' %}"> pag2 </a> <br>
+            </li>
+            <li>
+                    <a href="{% url 'app:pag3' %}"> pag3 </a> <br>
+            </li>
+
+            <li>
+                    <a href="{% url 'app:pag4' %}"> pag4 </a> <br>
+            </li>
+        </ul>
+    </nav>
+    <h1> zzz</h1>
+    <p style="color: indianred; font-size: 40px" f>
+        {% block content %}
+        {% endblock %}
+    </p>
+</body>
+</html>

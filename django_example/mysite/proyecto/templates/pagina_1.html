@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li>
-                    <a href="/pag1"> pag1 </a> <br>
-            </li>
-            <li>
-                    <a href="/pag2"> pag2 </a> <br>
-            </li>
-            <li>
-                    <a href="/pag3"> pag3 </a> <br>
-            </li>
-        </ul>
-    </nav>
+{% extends 'base.html' %}
+
+{% block title_block %} New title {% endblock %}
+
+{% block content %}
+    <h1> Ejemplo </h1>
 
     <p style="color: indianred; font-size: 40px" f>
          pagina uno
+        <button type="button" class="btn btn-primary">Primary</button>
     </p>
-</body>
-</html>
+{% endblock %}
