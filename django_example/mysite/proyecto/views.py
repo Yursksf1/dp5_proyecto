@@ -18,3 +18,19 @@ def index(request):
     }
 
     return render(request, 'index.html', contexto)
+
+
+
+def hola_mundo_123(request):
+    print("estoy llamado a la ruta 123")
+    return render(request, 'index.html', {})
+
+
+def players(request):
+    personas = Player.objects.all()
+
+    # here is the magic
+    context = {
+        "personas": [{'name': p.name, "age": p.age} for p in personas]
+    }
+    return render(request, "players.html", context)
