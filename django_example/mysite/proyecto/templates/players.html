@@ -4,3 +4,16 @@
     {{ persona.name }} -   {{ persona.age }} <br>
 {% endfor %}
 
+
+
+<h2> Crear un Player</h2>
+<form method="post">
+      {% csrf_token %}
+      <label for="player_name">Nombre</label><br>
+      <input type="text" id="player_name" name="player_name" value="John"><br>
+
+      <label for="player_age">Edad</label><br>
+      <input type="number" id="player_age" name="player_age" value="12" min="5" max="30">
+
+      <input type="submit" value="Submit">
+</form>

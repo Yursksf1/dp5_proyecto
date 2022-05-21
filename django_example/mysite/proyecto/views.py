@@ -33,4 +33,16 @@ def players(request):
     context = {
         "personas": [{'name': p.name, "age": p.age} for p in personas]
     }
+
+    if request.method == 'POST':
+        data = request.POST
+        player_age = data.get('player_age')
+        player_name = data.get('player_name')
+
+        # TODO: create a record in model
+        print("Voy a agregar un registro al modelo player con estos atributos: ")
+        print("player_age:", player_age)
+        print("player_name:", player_name)
+
+
     return render(request, "players.html", context)
