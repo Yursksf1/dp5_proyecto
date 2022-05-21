@@ -27,22 +27,20 @@ def hola_mundo_123(request):
 
 
 def players(request):
-    personas = Player.objects.all()
-
-    # here is the magic
-    context = {
-        "personas": [{'name': p.name, "age": p.age} for p in personas]
-    }
-
     if request.method == 'POST':
         data = request.POST
         player_age = data.get('player_age')
         player_name = data.get('player_name')
 
-        # TODO: create a record in model
-        print("Voy a agregar un registro al modelo player con estos atributos: ")
-        print("player_age:", player_age)
-        print("player_name:", player_name)
+        # Store Values in Player
+        player = Player()
+        player.name = player_name
+        player.age = player_age
+        player.save()
 
+    personas = Player.objects.all()
+    context = {
+        "personas": [{'name': p.name, "age": p.age} for p in personas]
+    }
 
     return render(request, "players.html", context)
